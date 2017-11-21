@@ -18,7 +18,7 @@ DnaTranscriber.prototype.toRna = function (dna) {
         rna.push('U')
         continue
       default:
-        throw new Error('Invalid input')
+        throw Error('Invalid input')
     }
   }
   return rna.join('')

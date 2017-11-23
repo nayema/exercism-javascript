@@ -52,3 +52,4 @@ fabric.properties
 *.iml
 .DS_Store
 /target/
+node_modules/

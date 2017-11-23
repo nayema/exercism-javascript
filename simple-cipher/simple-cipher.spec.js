@@ -21,7 +21,7 @@ describe('Random key cipher', function () {
   })
 })
 
-describe('Incorrect key cipher', function () { //PASS
+describe('Incorrect key cipher', function () {
   it('throws an error with an all caps key', function () {
     expect(function () {
       new Cipher('ABCDEF')
@@ -49,7 +49,7 @@ describe('Substitution cipher', function () {
     expect(cipher.key).toEqual(key)
   })
 
-  xit('can encode', function () {
+  it('can encode', function () {
     expect(cipher.encode('aaaaaaaaaa')).toEqual('abcdefghij')
   })
 

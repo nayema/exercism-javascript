@@ -53,28 +53,28 @@ describe('Substitution cipher', function () {
     expect(cipher.encode('aaaaaaaaaa')).toEqual('abcdefghij')
   })
 
-  xit('can decode', function () {
+  it('can decode', function () {
     expect(cipher.decode('abcdefghij')).toEqual('aaaaaaaaaa')
   })
 
-  xit('is reversible', function () {
+  it('is reversible', function () {
     expect(cipher.decode(cipher.encode('abcdefghij'))).toEqual('abcdefghij')
   })
 
-  xit(': double shift encode', function () {
+  it(': double shift encode', function () {
     expect(new Cipher('iamapandabear').encode('iamapandabear')).
       toEqual('qayaeaagaciai')
   })
 
-  xit('can wrap on encode', function () {
+  it('can wrap on encode', function () {
     expect(cipher.encode('zzzzzzzzzz')).toEqual('zabcdefghi')
   })
 
-  xit('can wrap on decode', () => {
+  it('can wrap on decode', () => {
     expect(cipher.decode('zabcdefghi')).toEqual('zzzzzzzzzz')
   })
 
-  xit('can handle messages longer than the key', function () {
+  it('can handle messages longer than the key', function () {
     expect(new Cipher('abc').encode('iamapandabear')).toEqual('iboaqcnecbfcr')
   })
 })

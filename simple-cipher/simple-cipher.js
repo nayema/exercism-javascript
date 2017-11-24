@@ -1,3 +1,5 @@
+const alphabets = 'abcdefghijklmnopqrstuvwxyz'
+
 const Cipher = function (key) {
   this.key = key || 'aaaaaaaaaa'
 
@@ -8,18 +10,34 @@ const Cipher = function (key) {
 }
 
 Cipher.prototype.encode = function (input) {
-  const alphabets = 'abcdefghijklmnopqrstuvwxyz'
   let encoded = []
+
   for (let i = 0; i < input.length; i++) {
-    let outputIndex = alphabets.indexOf(this.key[i]) +
-      alphabets.indexOf(input[i])
+    let keyRemainder = i % this.key.length
+
+    let outputIndex = alphabets.indexOf(input[i]) +
+      alphabets.indexOf(this.key[keyRemainder])
+    if (outputIndex >= alphabets.length) {
+      outputIndex -= alphabets.length
+    }
     encoded.push(alphabets[outputIndex])
   }
   return encoded.join('')
 }
 
 Cipher.prototype.decode = function (input) {
-  return input
+  let encoded = []
+
+  for (let i = 0; i < input.length; i++) {
+    let keyRemainder = i % this.key.length
+    let outputIndex = alphabets.indexOf(input[i]) -
+      alphabets.indexOf(this.key[keyRemainder])
+    if (outputIndex < 0) {
+      outputIndex += alphabets.length
+    }
+    encoded.push(alphabets[outputIndex])
+  }
+  return encoded.join('')
 }
 
 module.exports = Cipher

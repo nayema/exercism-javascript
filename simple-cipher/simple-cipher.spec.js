@@ -3,7 +3,7 @@ const Cipher = require('./simple-cipher')
 describe('Random key cipher', function () {
   const cipher = new Cipher()
 
-  xit('has a key made of letters', function () {
+  it('has a key made of letters', function () {
     expect(cipher.key).toMatch(/^[a-z]+$/)
   })
 
@@ -11,17 +11,17 @@ describe('Random key cipher', function () {
     expect(cipher.encode('aaaaaaaaaa')).toEqual(cipher.key.substr(0, 10))
   })
 
-  xit('can decode', function () {
+  it('can decode', function () {
     expect(cipher.decode(cipher.key.substr(0, 10))).toEqual('aaaaaaaaaa')
   })
 
-  xit('is reversible', function () {
+  it('is reversible', function () {
     const plaintext = 'abcdefghij'
     expect(cipher.decode(cipher.encode(plaintext))).toEqual(plaintext)
   })
 })
 
-xdescribe('Incorrect key cipher', function () { //PASS
+describe('Incorrect key cipher', function () {
   it('throws an error with an all caps key', function () {
     expect(function () {
       new Cipher('ABCDEF')
@@ -41,7 +41,7 @@ xdescribe('Incorrect key cipher', function () { //PASS
   })
 })
 
-xdescribe('Substitution cipher', function () {
+describe('Substitution cipher', function () {
   const key = 'abcdefghij'
   const cipher = new Cipher(key)
 

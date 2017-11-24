@@ -1,0 +1,31 @@
+{
+  "name": "exercism-javascript",
+  "version": "0.0.0",
+  "description": "Exercism JavaScript exercises",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start karma.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nayema/exercism-javascript.git"
+  },
+  "author": "Nayema Nasir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nayema/exercism-javascript/issues"
+  },
+  "homepage": "https://github.com/nayema/exercism-javascript#readme",
+  "devDependencies": {
+    "eslint": "^4.11.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^21.2.1"
+  },
+  "dependencies": {
+    "requirejs": "^2.3.5"
+  }
+}

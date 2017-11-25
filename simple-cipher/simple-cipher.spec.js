@@ -1,80 +1,145 @@
 const Cipher = require('./simple-cipher')
 
 describe('Random key cipher', function () {
-  const cipher = new Cipher()
-
   it('has a key made of letters', function () {
-    expect(cipher.key).toMatch(/^[a-z]+$/)
+    const cipher = new Cipher()
+    const letters = /^[a-z]+$/
+
+    const key = cipher.key
+
+    expect(key).toMatch(letters)
   })
 
   it('can encode', function () {
-    expect(cipher.encode('aaaaaaaaaa')).toEqual(cipher.key.substr(0, 10))
+    const cipher = new Cipher()
+    const input = 'aaaaaaaaaa'
+
+    const result = cipher.encode(input)
+
+    expect(result).toEqual(cipher.key.substr(0, 10))
   })
 
   it('can decode', function () {
-    expect(cipher.decode(cipher.key.substr(0, 10))).toEqual('aaaaaaaaaa')
+    const cipher = new Cipher()
+    const input = cipher.key.substr(0, 10)
+
+    const result = cipher.decode(input)
+
+    expect(result).toEqual('aaaaaaaaaa')
   })
 
   it('is reversible', function () {
-    const plaintext = 'abcdefghij'
-    expect(cipher.decode(cipher.encode(plaintext))).toEqual(plaintext)
+    const cipher = new Cipher()
+    const input = 'abcdefghij'
+
+    const result = cipher.decode(cipher.encode(input))
+
+    expect(result).toEqual(input)
   })
 })
 
 describe('Incorrect key cipher', function () {
   it('throws an error with an all caps key', function () {
+    const key = 'ABCDEF'
+
     expect(function () {
-      new Cipher('ABCDEF')
+      new Cipher(key)
     }).toThrow(new Error('Bad key'))
   })
 
   it('throws an error with a numeric key', function () {
+    const key = '12345'
+
     expect(function () {
-      new Cipher('12345')
+      new Cipher(key)
     }).toThrow(new Error('Bad key'))
   })
 
   it('throws an error with an empty key', function () {
+    const key = ''
+
     expect(function () {
-      new Cipher('')
+      new Cipher(key)
     }).toThrow(new Error('Bad key'))
   })
 })
 
 describe('Substitution cipher', function () {
-  const key = 'abcdefghij'
-  const cipher = new Cipher(key)
-
   it('keeps the submitted key', function () {
+    const key = 'abcdefghij'
+
+    const cipher = new Cipher(key)
+
     expect(cipher.key).toEqual(key)
   })
 
   it('can encode', function () {
-    expect(cipher.encode('aaaaaaaaaa')).toEqual('abcdefghij')
+    const key = 'abcdefghij'
+    const cipher = new Cipher(key)
+
+    const input = 'aaaaaaaaaa'
+    const result = cipher.encode(input)
+
+    expect(result).toEqual('abcdefghij')
   })
 
   it('can decode', function () {
-    expect(cipher.decode('abcdefghij')).toEqual('aaaaaaaaaa')
+    const key = 'abcdefghij'
+    const cipher = new Cipher(key)
+
+    const input = 'abcdefghij'
+    const result = cipher.decode(input)
+
+    expect(result).toEqual('aaaaaaaaaa')
   })
 
   it('is reversible', function () {
-    expect(cipher.decode(cipher.encode('abcdefghij'))).toEqual('abcdefghij')
+    const key = 'abcdefghij'
+    const cipher = new Cipher(key)
+
+    const input = 'abcdefghij'
+    const result = cipher.decode(cipher.encode(input))
+
+    expect(result).toEqual('abcdefghij')
   })
 
   it(': double shift encode', function () {
-    expect(new Cipher('iamapandabear').encode('iamapandabear')).
-      toEqual('qayaeaagaciai')
+    const key = 'iamapandabear'
+    const cipher = new Cipher(key)
+
+    const input = 'iamapandabear'
+    const result = cipher.encode(input)
+
+    expect(result).toEqual('qayaeaagaciai')
   })
 
   it('can wrap on encode', function () {
-    expect(cipher.encode('zzzzzzzzzz')).toEqual('zabcdefghi')
+    const key = 'abcdefghij'
+    const cipher = new Cipher(key)
+
+    const input = 'zzzzzzzzzz'
+    const result = cipher.encode(input)
+
+    expect(result).toEqual('zabcdefghi')
   })
 
-  it('can wrap on decode', () => {
-    expect(cipher.decode('zabcdefghi')).toEqual('zzzzzzzzzz')
+  it('can wrap on decode', function () {
+    const key = 'abcdefghij'
+    const cipher = new Cipher(key)
+
+    const input = 'zabcdefghi'
+    const result = cipher.decode(input)
+
+    expect(result).toEqual('zzzzzzzzzz')
   })
 
   it('can handle messages longer than the key', function () {
-    expect(new Cipher('abc').encode('iamapandabear')).toEqual('iboaqcnecbfcr')
+    const key = 'abc'
+    const cipher = new Cipher(key)
+
+    const input = 'iamapandabear'
+    const result = cipher.encode(input)
+
+    expect(result).toEqual('iboaqcnecbfcr')
   })
 })

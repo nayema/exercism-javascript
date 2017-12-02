@@ -5,8 +5,9 @@ const Cipher = function (key) {
 
   const numbers = /^\d+$/
   const UpperCaseAlphabets = /^[A-Z]*$/
-  if (UpperCaseAlphabets.test(key) || numbers.test(key) || key === '')
+  if (UpperCaseAlphabets.test(key) || numbers.test(key) || key === '') {
     throw Error('Bad key')
+  }
 }
 
 Cipher.prototype.encode = function (input) {

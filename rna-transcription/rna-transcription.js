@@ -1,4 +1,5 @@
-const DnaTranscriber = function () {}
+const DnaTranscriber = function () {
+}
 
 DnaTranscriber.prototype.toRna = function (dna) {
   let rna = []

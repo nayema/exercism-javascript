@@ -50,8 +50,10 @@ describe('toRna()', function () {
     const dnaTranscriber = new DnaTranscriber()
     const dna = 'XXX'
 
-    expect(function () { dnaTranscriber.toRna(dna) }).toThrow(
-      new Error('Invalid input'),
+    expect(function () {
+      dnaTranscriber.toRna(dna)
+    }).toThrow(
+      new Error('Invalid input')
     )
   })
 
@@ -59,8 +61,10 @@ describe('toRna()', function () {
     const dnaTranscriber = new DnaTranscriber()
     const dna = 'ACGTXXXCTTAA'
 
-    expect(function () { dnaTranscriber.toRna(dna) }).toThrow(
-      new Error('Invalid input'),
+    expect(function () {
+      dnaTranscriber.toRna(dna)
+    }).toThrow(
+      new Error('Invalid input')
     )
   })
 })

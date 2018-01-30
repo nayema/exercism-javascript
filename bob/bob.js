@@ -1,4 +1,5 @@
-const Bob = function () {}
+const Bob = function () {
+}
 
 Bob.prototype.hey = function (input) {
   if ((input.charAt(input.length - 1) === '!' && !input.includes('Let\'s')) ||

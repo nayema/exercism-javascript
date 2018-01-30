@@ -1,4 +1,5 @@
-const HelloWorld = function () {}
+const HelloWorld = function () {
+}
 
 HelloWorld.prototype.hello = function () {
   return 'Hello, World!'

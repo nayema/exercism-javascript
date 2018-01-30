@@ -1,6 +1,6 @@
 const Pangram = require('./pangram')
 
-describe('Pangram()', function ()  {
+describe('Pangram()', function () {
   it('returns false when the sentence is empty', function () {
     const input = ''
     const pangram = new Pangram(input)
@@ -19,7 +19,7 @@ describe('Pangram()', function ()  {
     expect(result).toEqual(false)
   })
 
-  it('returns true when the sentence has only lower case letters', function ()  {
+  it('returns true when the sentence has only lower case letters', function () {
     const input = 'the quick brown fox jumps over the lazy dog'
     const pangram = new Pangram(input)
 
@@ -28,7 +28,7 @@ describe('Pangram()', function ()  {
     expect(result).toEqual(true)
   })
 
-  it('returns true when the sentence has only upper case letters', function ()  {
+  it('returns true when the sentence has only upper case letters', function () {
     const input = 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG'
     const pangram = new Pangram(input)
 
@@ -37,7 +37,7 @@ describe('Pangram()', function ()  {
     expect(result).toEqual(true)
   })
 
-  it("returns false when the sentence is missing character 'x'", function ()  {
+  it('returns false when the sentence is missing character \'x\'', function () {
     const input = 'a quick movement of the enemy will jeopardize five gunboats'
     const pangram = new Pangram(input)
 
@@ -46,7 +46,7 @@ describe('Pangram()', function ()  {
     expect(result).toEqual(false)
   })
 
-  it("returns false if the sentence is missing another character 'x'", function () {
+  it('returns false if the sentence is missing another character \'x\'', function () {
     const input = 'the quick brown fish jumps over the lazy dog'
     const pangram = new Pangram(input)
 
@@ -82,7 +82,7 @@ describe('Pangram()', function ()  {
     expect(result).toEqual(false)
   })
 
-  it('returns true when the sentence includes mixed case and punctuation', function ()  {
+  it('returns true when the sentence includes mixed case and punctuation', function () {
     const input = '"Five quacking Zephyrs jolt my wax bed."'
     const pangram = new Pangram(input)
 
@@ -91,7 +91,7 @@ describe('Pangram()', function ()  {
     expect(result).toEqual(true)
   })
 
-  it('returns true if the sentence includes non-ascii characters', function ()  {
+  it('returns true if the sentence includes non-ascii characters', function () {
     const input = 'Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich.'
     const pangram = new Pangram(input)
 

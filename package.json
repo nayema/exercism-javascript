@@ -17,22 +17,22 @@
   },
   "homepage": "https://github.com/nayema/exercism-javascript#readme",
   "devDependencies": {
-    "@types/jest": "^22.0.1",
+    "@types/jest": "^24.0.18",
     "babel-eslint": "^8.2.1",
-    "babel-preset-env": "^1.6.1",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^4.16.0",
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-plugin-flowtype": "^3.10.4",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-standard": "^3.1.0",
     "jest": "^21.2.1",
     "stylelint": "^8.4.0",
-    "stylelint-config-standard": "^18.0.0"
+    "stylelint-config-standard": "^18.3.0"
   },
   "dependencies": {
-    "requirejs": "^2.3.5"
+    "requirejs": "^2.3.6"
   },
   "babel": {
     "presets": [

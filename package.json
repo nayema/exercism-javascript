@@ -19,8 +19,8 @@
   "devDependencies": {
     "@types/jest": "^22.0.1",
     "babel-eslint": "^8.2.1",
-    "babel-preset-env": "^1.6.1",
-    "eslint": "^4.19.1",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.16.0",
     "eslint-config-standard": "^11.0.0-beta.0",
     "eslint-plugin-flowtype": "^2.41.0",
     "eslint-plugin-import": "^2.8.0",
